@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Cat Maker&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://catmak3r.github.io/blog/"/>
+  <updated>2020-03-17T08:34:19.659Z</updated>
+  <id>https://catmak3r.github.io/blog/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://catmak3r.github.io/blog/2020/03/17/hello-world/"/>
+    <id>https://catmak3r.github.io/blog/2020/03/17/hello-world/</id>
+    <published>2020-03-17T08:34:19.659Z</published>
+    <updated>2020-03-17T08:34:19.659Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>装饰者模式</title>
+    <link href="https://catmak3r.github.io/blog/2020/03/17/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>https://catmak3r.github.io/blog/2020/03/17/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</id>
+    <published>2020-03-17T08:34:19.659Z</published>
+    <updated>2020-03-17T08:34:19.659Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h1><h3 id="星巴克咖啡订单项目（咖啡馆）"><a href="#星巴克咖啡订单项目（咖啡馆）" class="headerlink" title="星巴克咖啡订单项目（咖啡馆）"></a>星巴克咖啡订单项目（咖啡馆）</h3><ol><li><p>咖啡种类/单品咖啡：Espresso(意大利浓咖啡)、ShortBlack、LongBlack(美式咖啡)、Decaf(无因咖啡)</p></li><li><p>调料：Milk、Soy(豆浆)、Chocolate</p></li><li><p>要求在扩展新的咖啡种类时，具有良好的扩展性、改动方便、维护方便</p></li><li><p>使用 OO 的来计算不同种类咖啡的费用: 客户可以点单品咖啡，也可以单品咖啡+调料组合。</p></li></ol><h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><p><img src="/blog/2020/03/17/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/image-20200317124401385.png" alt="image-20200317124401385"></p><h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><ol><li><p>Drink 是一个抽象类，表示饮料</p></li><li><p>des 就是对咖啡的描述, 比如咖啡的名字</p></li><li><p>cost() 方法就是计算费用，Drink 类中做成一个抽象方法.</p></li><li><p>Decaf 就是单品咖啡， 继承 Drink, 并实现 cost</p></li><li><p>Espress &amp;&amp; Milk 就是单品咖啡+调料， 这个组合很多</p></li></ol><ul><li>问题：这样设计，会有很多类，当我们增加一个单品咖啡，或者一个新的调料，类的数量就会倍增，就会出现类爆炸</li></ul><h3 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h3><p>前面分析到方案 1 因为咖啡单品+调料组合会造成类的倍增，因此可以做改进，将调料内置到 Drink 类，这样就不会造成类数量过多。从而提高项目的维护性(如图)</p><p><img src="/blog/2020/03/17/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/image-20200316233957838.png" alt="image-20200316233957838"></p><h4 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h4><ol><li><p>方案 2 可以控制类的数量，不至于造成很多的类</p></li><li><p>在增加或者删除调料种类时，代码的维护量很大</p></li><li><p>考虑到用户可以添加多份 调料时，可以将 hasMilk 返回一个对应 int</p></li></ol><ul><li>考虑使用装饰者模式</li></ul><h3 id="装饰者模式定义"><a href="#装饰者模式定义" class="headerlink" title="装饰者模式定义"></a>装饰者模式定义</h3><p>装饰者模式：动态的将新功能附加到对象上。在对象功能扩展方面，它比继承更有弹性，装饰者模式也体现了开闭原则<strong>(ocp</strong>)</p><h3 id="装饰者的角色"><a href="#装饰者的角色" class="headerlink" title="装饰者的角色"></a>装饰者的角色</h3><ol><li><p>抽象构件角色(Component):给出一个抽象接口,以规范准备接受附加责任的对象</p></li><li><p>具体构件角色(Concrete Component):定义将要接受附加责任的类</p></li><li><p>装饰角色(Decorator):持有一个构件(Component)对象的引用,并定义一个与抽象接口一致的接口</p></li><li><p>具体装饰角色(Concrete Decorator):负责给构件对象添加附加的责任</p><p><img src="/blog/2020/03/17/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/071935185455365.png" alt="img">  </p><h3 id="装饰者模式解决星巴克咖啡订单"><a href="#装饰者模式解决星巴克咖啡订单" class="headerlink" title="装饰者模式解决星巴克咖啡订单"></a>装饰者模式解决星巴克咖啡订单</h3><p><img src="/blog/2020/03/17/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/image-20200316231437086.png" alt="image-20200316231437086"></p><h3 id="装饰者模式下的订单：2-份巧克力-一份牛奶的-LongBlack"><a href="#装饰者模式下的订单：2-份巧克力-一份牛奶的-LongBlack" class="headerlink" title="装饰者模式下的订单：2 份巧克力+一份牛奶的 LongBlack"></a>装饰者模式下的订单：2 份巧克力+一份牛奶的 LongBlack</h3><p> <img src="/blog/2020/03/17/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/image-20200316231454072.png" alt="image-20200316231454072"></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;装饰者模式&quot;&gt;&lt;a href=&quot;#装饰者模式&quot; class=&quot;headerlink&quot; title=&quot;装饰者模式&quot;&gt;&lt;/a&gt;装饰者模式&lt;/h1&gt;&lt;h3 id=&quot;星巴克咖啡订单项目（咖啡馆）&quot;&gt;&lt;a href=&quot;#星巴克咖啡订单项目（咖啡馆）&quot; class=&quot;head
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
